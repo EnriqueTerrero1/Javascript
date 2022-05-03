@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label>Nombre</label> <input type="text" id="nombreTxt"><br>
+    <label>Apellido</label><input type="text" id="apellidoTxt"><br>
+    <label for="">telefono</label><input type="text" id="telefonoTxt"><br>
+
+    <button id="AgregarBtn">Agregar</button>
+
+    <div id="Listado">
+
+    </div>
+
+
+    <script>
+
+        window.onload = iniciar;
+        var personas = [];
+
+        function iniciar() {
+            var btnAgregar = document.getElementById("AgregarBtn");
+            btnAgregar.addEventListener("click", Agregar);
+        }
+
+        function Agregar() {
+            debugger
+            var nombre = document.getElementById("nombreTxt").value;
+            var apellido = document.getElementById("apellidoTxt").value;
+            var telefono = document.getElementById("telefonoTxt").value;
+
+
+            var persona = {
+                "nombre": nombre,
+                "apellido": apellido,
+                "telefono": telefono
+            }
+
+            personas.push(persona);
+
+            MostrarPersona();
+        }
+
+        function MostrarPersona() {
+
+            var html = "";
+            for (var p of personas) {
+                html += p.nombre + "<br>"
+
+
+            }
+
+            Listado = document.getElementById("Listado");
+            Listado.innerHTML=html;
+
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>
